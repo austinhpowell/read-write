@@ -27,6 +27,10 @@ public class Alien {
 	 
 	 //label as alien
 	 alien[4]="alien";
+	 
+	 //other qualities
+	 alien[5]="not turning";
+	 alien[6]="alive";
  }
  public String[] getalien(){
 	 return(alien);

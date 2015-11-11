@@ -10,7 +10,7 @@ public class Human {
 	
 	//potential human quality matricies
 	static String[] potentialeyes={"blue", "green", "brown", "grey","hazel","teal"};
-	static String[] potentialpersona={"timid", "aggressive", "clueless", "skitish","calm"};
+	static String[] potentialpersona={"timidly", "aggressively", "cluelessly", "skitishly","calmly"};
 	
 	
  Human(String namein){
