@@ -8,8 +8,12 @@ import javax.swing.JOptionPane;
 
 public class Main {
 static int humansize=0;
-static String[] names={"Joe","Max","Stephanie","Austin","Megan","Delanie","Carl","Felicia","Isabelle","Tom","Teddy","James","Carlos","Levi", "Jay", "Bob","Yuri"};
-static String[] action={"working","sitting", "pacing", "biding time", "staring off into space"};
+static String[] names={"Joe","Max","Stephanie","Austin","Megan","Delanie","Carl","Felicia","Isabelle","Tom","Teddy","James","Carlos","Levi", "Jay", "Bob","Yuri",
+		"Rueben", "Earnest", "Teresa", "Junior", "Elena", "Raymon", "Marshall", "Lexie", "Ellie", "Ivan", "Dillion",
+		"Anya", "Jennefer", "Leena", "Ruth", "Owen", "Geoffrey", "Todd", "Shela", "Elin", "Bailey", "Jesica", "Burl", "Mila", "Holly",
+		"Sam", "Doris", "Christine", "Hillary", "Ian", "Rob"};
+static String[] action={"working","sitting", "pacing", "biding time", "staring off into space", "whispering", "reflecting", "watching", "scribbling", "examining something",
+		"preparing", "thinking", "ranting", "drawing", "reading", "waiting"};
 //make list to store humans
 static ArrayList<String[]> people=new ArrayList<String[]>();
 
@@ -299,7 +303,7 @@ static int recroomvisit=0;
 		//method vars
 		int attack=0;
 		String object="small crate";
-		//if there are two people and one is an alien, you walk in on the alien turning the person
+		//if there are two people and only one is a human, you walk in on the alien turning the person
 				if(storeroom.size()==2){
 					if(people.get(storeroom.get(0))[4].equals("alien") && people.get(storeroom.get(1))[4].equals("human")){
 						JOptionPane.showMessageDialog(null,"You enter to find " + people.get(storeroom.get(0))[0] + " attacking "+people.get(storeroom.get(1))[0]

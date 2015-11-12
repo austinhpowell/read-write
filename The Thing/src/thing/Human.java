@@ -9,8 +9,9 @@ public class Human {
 	static int crazy=0;
 	
 	//potential human quality matricies
-	static String[] potentialeyes={"blue", "green", "brown", "grey","hazel","teal"};
-	static String[] potentialpersona={"timidly", "aggressively", "cluelessly", "skitishly","calmly"};
+	static String[] potentialeyes={"blue", "green", "brown", "grey","hazel","teal", "violet"};
+	static String[] potentialpersona={"timidly", "aggressively", "absentmindedly", "skitishly","calmly", "curiously", "coldly", "bravely",
+			"mysteriously", "meanly", "obediently"};
 	
 	
  Human(String namein){
