@@ -29,6 +29,9 @@ static int storeroomvisit=0;
 static int outsidevisit=0;
 static int recroomvisit=0;
 
+//decision counter
+static int decision=0;
+
 	public static void main(String[] args) {
 	
 		
@@ -38,7 +41,7 @@ static int recroomvisit=0;
 		//make humans
 		for(int i=0;i<8;i++){
 		//String name = JOptionPane.showInputDialog("What is his/her name?");
-			
+		decision=0;	
 		//random names	
 		String name=names[rand.nextInt(names.length)];
 		
@@ -64,12 +67,12 @@ static int recroomvisit=0;
 		
 				
 		//Print new people including alien
-		for(int b=0; b<people.size();b++){ 
-			for (int t=0; t< humansize; t++){
-				System.out.println(people.get(b)[t]);
+		//for(int b=0; b<people.size();b++){ 
+		//	for (int t=0; t< humansize; t++){
+		//		System.out.println(people.get(b)[t]);
 		
-			}
-		}
+		//	}
+		//}
 		
 		//move people to rooms
 		movepeople();
@@ -191,10 +194,10 @@ static int recroomvisit=0;
 		}
 		
 		//print out all the rooms to make sure this works
-		System.out.println(lab);
-		System.out.println(storeroom);
-		System.out.println(outside);
-		System.out.println(recroom);
+		//System.out.println(lab);
+		//System.out.println(storeroom);
+		//System.out.println(outside);
+		//System.out.println(recroom);
 		
 		//go to your move
 		yourmove();
@@ -234,7 +237,7 @@ static int recroomvisit=0;
 				counter=counter+1;
 			}
 		}
-		System.out.println("There are "+counter+" humans in here.");
+		//System.out.println("There are "+counter+" humans in here.");
 		//if there is one person and its an alien, they attack and you run
 		if(lab.size()==1){
 			if(people.get(lab.get(0))[4].equals("alien")){
@@ -287,8 +290,8 @@ static int recroomvisit=0;
 				//display some investigative text
 				JOptionPane.showMessageDialog(null,"You see "+ people.get(lab.get(i))[0]+" " +verb + " "+ people.get(lab.get(i))[2] +". "+ 
 				"He/she looks at you with " +	people.get(lab.get(i))[1] + " eyes that show " + crazyphrase);
-				System.out.println(people.get(lab.get(i))[0]);
-				System.out.println(people.get(lab.get(i))[4]);
+				//System.out.println(people.get(lab.get(i))[0]);
+				//System.out.println(people.get(lab.get(i))[4]);
 			}
 		}
 		
@@ -303,8 +306,26 @@ static int recroomvisit=0;
 		//method vars
 		int attack=0;
 		String object="small crate";
-		//if there are two people and only one is a human, you walk in on the alien turning the person
-				if(storeroom.size()==2){
+		int counter=0;
+		
+		//count the number of humans in the room
+				for(int i=0;i<storeroom.size();i++){
+					if(people.get(storeroom.get(i))[4].equals("human")){
+						counter=counter+1;
+					}
+				}
+				//System.out.println("There are "+counter+" humans in here.");
+				//if there is one person and its an alien, they attack and you run
+				if(storeroom.size()==1){
+					if(people.get(storeroom.get(0))[4].equals("alien")){
+						JOptionPane.showMessageDialog(null,"You enter to find " + people.get(storeroom.get(0))[0]+" standing ominously.\n"+
+								people.get(storeroom.get(0))[0]+" turns around, its face splitting into rows \n of razor sharp teeth. You slam the door and run.");
+						attack=1;
+						
+					}
+				}
+				//if there are two people and one is an alien, you walk in on the alien turning the person
+				if(storeroom.size()>1 && counter==1){
 					if(people.get(storeroom.get(0))[4].equals("alien") && people.get(storeroom.get(1))[4].equals("human")){
 						JOptionPane.showMessageDialog(null,"You enter to find " + people.get(storeroom.get(0))[0] + " attacking "+people.get(storeroom.get(1))[0]
 								+ " with new limbs sprouting  from "+people.get(storeroom.get(1))[0]+ "'s back. You throw a " + object + " at the alien and stumble it.\n You hold the door for "
@@ -345,8 +366,8 @@ static int recroomvisit=0;
 				//display some investigative text
 				JOptionPane.showMessageDialog(null,"You see "+ people.get(storeroom.get(i))[0]+" " +verb + " "+ people.get(storeroom.get(i))[2] +". "+ 
 				"He/she looks at you with " +	people.get(storeroom.get(i))[1] + " eyes that show " + crazyphrase);
-				System.out.println(people.get(storeroom.get(i))[0]);
-				System.out.println(people.get(storeroom.get(i))[4]);
+				//System.out.println(people.get(storeroom.get(i))[0]);
+				//System.out.println(people.get(storeroom.get(i))[4]);
 			}
 		}
 		//store that you visited
@@ -359,7 +380,39 @@ static int recroomvisit=0;
 		//method vars
 		int attack=0;
 		String object="shovel";
+		int counter=0;
 		
+		//count the number of humans in the room
+				for(int i=0;i<outside.size();i++){
+					if(people.get(outside.get(i))[4].equals("human")){
+						counter=counter+1;
+					}
+				}
+				//System.out.println("There are "+counter+" humans in here.");
+				//if there is one person and its an alien, they attack and you run
+				if(outside.size()==1){
+					if(people.get(outside.get(0))[4].equals("alien")){
+						JOptionPane.showMessageDialog(null,"You enter to find " + people.get(outside.get(0))[0]+" standing ominously.\n"+
+								people.get(outside.get(0))[0]+" turns around, its face splitting into rows \n of razor sharp teeth. You slam the door and run.");
+						attack=1;
+						
+					}
+				}
+				//if there are two people and one is an alien, you walk in on the alien turning the person
+				if(outside.size()>1 && counter==1){
+					if(people.get(outside.get(0))[4].equals("alien") && people.get(outside.get(1))[4].equals("human")){
+						JOptionPane.showMessageDialog(null,"You enter to find " + people.get(outside.get(0))[0] + " attacking "+people.get(outside.get(1))[0]
+								+ " with new limbs sprouting  from "+people.get(outside.get(1))[0]+ "'s back. You throw a " + object + " at the alien and stumble it.\n You hold the door for "
+								+ people.get(outside.get(1))[0] + " and you both run from the room.");
+						attack=1;
+					}
+					if(people.get(outside.get(1))[4].equals("alien") && people.get(outside.get(0))[4].equals("human")){
+						JOptionPane.showMessageDialog(null,"You enter to find " + people.get(outside.get(1))[0] + " attacking "+people.get(outside.get(0))[0]
+								+ " with new limbs sprouting \n from "+people.get(outside.get(1))[0]+ "'s back. You throw a " + object + " at the alien and stumble it.\n You hold the door for "
+								+ people.get(outside.get(0))[0] + " and you both run from the room.");
+						attack=1;
+					}
+				}
 		
 		if(attack==0){		
 			for(int i=0;i<outside.size();i++){
@@ -388,8 +441,8 @@ static int recroomvisit=0;
 				//display some investigative text
 				JOptionPane.showMessageDialog(null,"You see "+ people.get(outside.get(i))[0]+" " +verb + " "+ people.get(outside.get(i))[2] +". "+ 
 				"He/she looks at you with " +	people.get(outside.get(i))[1] + " eyes that show " + crazyphrase);
-				System.out.println(people.get(outside.get(i))[0]);
-				System.out.println(people.get(outside.get(i))[4]);
+				//System.out.println(people.get(outside.get(i))[0]);
+				//System.out.println(people.get(outside.get(i))[4]);
 				
 			}
 		}
@@ -404,7 +457,39 @@ static int recroomvisit=0;
 		//method vars
 		int attack=0;
 		String object="small crate";
-				
+		int counter=0;
+		
+		//count the number of humans in the room
+				for(int i=0;i<recroom.size();i++){
+					if(people.get(recroom.get(i))[4].equals("human")){
+						counter=counter+1;
+					}
+				}
+				//System.out.println("There are "+counter+" humans in here.");
+				//if there is one person and its an alien, they attack and you run
+				if(recroom.size()==1){
+					if(people.get(recroom.get(0))[4].equals("alien")){
+						JOptionPane.showMessageDialog(null,"You enter to find " + people.get(recroom.get(0))[0]+" standing ominously.\n"+
+								people.get(recroom.get(0))[0]+" turns around, its face splitting into rows \n of razor sharp teeth. You slam the door and run.");
+						attack=1;
+						
+					}
+				}
+				//if there are two people and one is an alien, you walk in on the alien turning the person
+				if(recroom.size()>1 && counter==1){
+					if(people.get(recroom.get(0))[4].equals("alien") && people.get(recroom.get(1))[4].equals("human")){
+						JOptionPane.showMessageDialog(null,"You enter to find " + people.get(recroom.get(0))[0] + " attacking "+people.get(recroom.get(1))[0]
+								+ " with new limbs sprouting  from "+people.get(recroom.get(1))[0]+ "'s back. You throw a " + object + " at the alien and stumble it.\n You hold the door for "
+								+ people.get(recroom.get(1))[0] + " and you both run from the room.");
+						attack=1;
+					}
+					if(people.get(recroom.get(1))[4].equals("alien") && people.get(recroom.get(0))[4].equals("human")){
+						JOptionPane.showMessageDialog(null,"You enter to find " + people.get(recroom.get(1))[0] + " attacking "+people.get(recroom.get(0))[0]
+								+ " with new limbs sprouting \n from "+people.get(recroom.get(1))[0]+ "'s back. You throw a " + object + " at the alien and stumble it.\n You hold the door for "
+								+ people.get(recroom.get(0))[0] + " and you both run from the room.");
+						attack=1;
+					}
+				}		
 		if(attack==0){		
 			for(int i=0;i<recroom.size();i++){
 				//variables for people
@@ -432,8 +517,8 @@ static int recroomvisit=0;
 				//display some investigative text
 				JOptionPane.showMessageDialog(null,"You see "+ people.get(recroom.get(i))[0]+" " +verb + " "+ people.get(recroom.get(i))[2] +". "+ 
 				"He/she looks at you with " +	people.get(recroom.get(i))[1] + " eyes that show " + crazyphrase);
-				System.out.println(people.get(recroom.get(i))[0]);
-				System.out.println(people.get(recroom.get(i))[4]);
+				//System.out.println(people.get(recroom.get(i))[0]);
+				//System.out.println(people.get(recroom.get(i))[4]);
 				
 			}
 		}
@@ -546,8 +631,58 @@ static int recroomvisit=0;
 		    	newturn();
 		    	
 		    }
+		   
+		    if(response==1){
+		    	//decision=0;
+		    	//for(int i=0;i<people.size();i++){
+		    	//	Meeting finale=new Meeting(people.get(i));
+		    		//while(i==decision){
+		    			
+		    		//}
+		    		//people.set(i, finale.getresult());
+		    		//System.out.println(people.get(i)[6]);
+		    	//}
+		    	//choose who you think is an alien.
+		    	for(int i=0;i<people.size();i++){
+		    		String[] choice = new String[] {"Alien", "Human"};
+				    int choose = JOptionPane.showOptionDialog(null, "What is "+people.get(i)[0], "",
+				        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+				        null, choice, choice[0]);
+				    if(choose==0){
+				    	String[] set=people.get(i);
+				    	set[6]="dead";
+				    	people.set(i,set);
+				    }
+				   //System.out.println(people.get(i)[6]);
+				   //System.out.println(people.get(i)[4]);
+		    	}
+		    	
+		    	//figure out how well you did
+		    	double correct=0;
+		    	for(int i=0;i<people.size();i++){
+		    		if(people.get(i)[6].equals("dead") && people.get(i)[4].equals("alien")){
+		    			correct=correct+1;
+		    			
+		    		}
+		    		if(people.get(i)[6].equals("alive") && people.get(i)[4].equals("human")){
+		    			correct=correct+1;
+		    			
+		    		}
+		    	}
+		    	//System.out.println(correct);
+		    	double peeps=people.size();
+		    	//System.out.println(peeps);
+		    	double accuracy=correct/peeps*100;
+		    	System.out.println(accuracy);
+		    	
+		    	Meeting end=new Meeting(people, accuracy);
+		    	
+		    	
+		    }
 		    
-		    
+		    if(response==2){
+		    	JOptionPane.showMessageDialog(null,"You leave everyone to die.");
+		    }
 	}
 		
 }
