@@ -10,7 +10,8 @@ public class Main {
 static int humansize=0;
 static String[] names={"Joe","Max","Stephanie","Austin","Megan","Delanie","Carl","Felicia","Isabelle","Tom","Teddy","James","Carlos","Levi", "Jay", "Bob","Yuri",
 		"Rueben", "Earnest", "Teresa", "Junior", "Elena", "Raymon", "Marshall", "Lexie", "Ellie", "Ivan", "Dillion",
-		"Anya", "Jennefer", "Leena", "Ruth", "Owen", "Geoffrey", "Todd", "Shela", "Elin", "Bailey", "Jesica", "Burl", "Mila", "Holly",
+		"Anya", "Jennefer", "Leena", "Ruth", "Owen", "Geoffrey", "Todd", "Shela", "Elin", "Bailey", "Jesica", "Burl", "Mila", "Holly", "Charles", "Rick",
+		"Morty", "Jan", "Lars", "Tim", "Tiffany", "Ethan", "Walter", "JD", "Theo",
 		"Sam", "Doris", "Christine", "Hillary", "Ian", "Rob"};
 static String[] action={"working","sitting", "pacing", "biding time", "staring off into space", "whispering", "reflecting", "watching", "scribbling", "examining something",
 		"preparing", "thinking", "ranting", "drawing", "reading", "waiting"};
@@ -621,12 +622,12 @@ static int decision=0;
 						humancounter=humancounter+1;
 					}
 				}
-				System.out.println("There are "+humancounter+" humans left.");
+				//System.out.println("There are "+humancounter+" humans left.");
 				
 				//status
-				for(int i=0;i<people.size();i++){
-		    		System.out.println(people.get(i)[0]+": "+people.get(i)[4]);
-		    	}
+				//for(int i=0;i<people.size();i++){
+		    	//	System.out.println(people.get(i)[0]+": "+people.get(i)[4]);
+		    	//}
 		    	//reset move
 		    	newturn();
 		    	
@@ -673,7 +674,7 @@ static int decision=0;
 		    	double peeps=people.size();
 		    	//System.out.println(peeps);
 		    	double accuracy=correct/peeps*100;
-		    	System.out.println(accuracy);
+		    	//System.out.println(accuracy);
 		    	
 		    	Meeting end=new Meeting(people, accuracy);
 		    	
