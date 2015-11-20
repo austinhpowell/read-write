@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 
 //buffered reader from https://www.caveofprogramming.com/java/java-file-reading-and-writing-files-in-java.html.
 public class readwrite {
@@ -31,6 +33,7 @@ public class readwrite {
             
             //store stuff
             String print="";
+            
             //count the number of lines to read and display lines
             while((line = bufferedReader.readLine()) != null) {
                 linecount=linecount+1;
@@ -38,6 +41,8 @@ public class readwrite {
                 System.out.println(print);
             }   
             
+            //display a section of the text
+            System.out.println(print.substring(5, 10));
             //display that
             System.out.println(linecount);
             
@@ -69,14 +74,19 @@ public class readwrite {
             // Always wrap FileWriter in BufferedWriter.
             BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
+            
+            //text to print
+            String write=JOptionPane.showInputDialog(null,"Type some text to write");
+            
+            while(write.equals("")){
+            	write=JOptionPane.showInputDialog(null,"Just type something.");
+            }
 
             // Note that write() does not automatically
             // append a newline character.
-            bufferedWriter.write("Hello there,");
-            bufferedWriter.write(" here is some text.");
+            bufferedWriter.write(write);
             bufferedWriter.newLine();
-            bufferedWriter.write("We are writing");
-            bufferedWriter.write(" the text to the file.");
+            bufferedWriter.write(write+" "+write);
 
             // Always close files.
             bufferedWriter.close();
