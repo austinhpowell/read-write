@@ -1,0 +1,13 @@
+The Thing is an interactive program that is modeled after John Carpenter’s movie, The Thing. Essentially, 8 people are made with random 
+traits(eye-color, persona, carziness) and one person is turned into an alien. Then, all the humans move to 4 places (lab, storeroom, outside, and rec room) randomly. 
+Then aliens then try to choose a room that only has one person. If the alien finds a room with only one person, it will try to attack 
+that person and turn that person into an alien. When a person is turned into an alien, there is a 25% chance that most of the attributes 
+are replicated perfectly. There is a 75% that the eye-color and persona will change. However, every alien has zero craziness and is calm.
+This is a way the player can identify an alien but there are some humans that are this calm.
+
+The player will move to one place of his/her choice every turn. If an alien is attacking someone, the player will stop the attack and save 
+the person from becoming an alien. If there is no one in the room then nothing happens. If there is no attack in the room then the player 
+learns every attribute about the people in there for future reference, regardless of whether they are human or alien. 
+If there is one alien in a place, the player learns that alien’s identity 
+and runs away. The player can choose to go into the endgame at the end of any turn by calling a meeting and deciding who the player thinks is human and who
+ the player thinks is an alien. The results are then displayed in a JFrame that has a close button .
